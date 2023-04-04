@@ -7,7 +7,7 @@ body {
   background-color: #ddd0c8;
 }
 
-$ruler: 16px;
+$ruler: 10px;
 $color-red: #ce1804;
 $color-bg: #ebecf0;
 $color-shadow: #38393d;
@@ -43,7 +43,6 @@ form {
 .segment {
   text-align: center;
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   height: 70px;
@@ -96,11 +95,12 @@ button {
 
 .info {
   display: flex;
+  flex-wrap: wrap;
   max-width: 100%;
 }
 
 .info-item:not(:last-child) {
-  margin-right: 20px;
+  margin-right: 10px;
 }
 
 .gallery {
