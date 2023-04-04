@@ -113,7 +113,6 @@
 
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { fetchImg } from './js/fetch';
-import { renderImg } from './js/renderHTML';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
@@ -162,10 +161,9 @@ async function fetchAndRenderImg(e) {
     renderImg(ref, data);
     galleryBox.refresh();
     ref.loader.style.display = 'block';
+    location.reload();
   } catch (error) {
     console.log(error);
-  } finally {
-    location.reload();
   }
 }
 
@@ -217,11 +215,30 @@ function getOptionObserver() {
     threshold: 0.25,
   };
 }
-function callbackObserver(entries, observer) {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      onLoadMore();
-    }
+
+function renderImg(ref, data) {
+  const gallery = ref.gallery;
+
+  data.forEach(({ webformatURL, largeImageURL, tags }) => {
+    const img = document.createElement('img');
+    img.classList.add('gallery__item');
+    img.src = webformatURL;
+    img.dataset.source = largeImageURL;
+    img.alt = tags;
+
+    const link = document.createElement('a');
+    link.classList.add('gallery__link');
+    link.href = largeImageURL;
+    link.appendChild(img);
+
+    const galleryItem = document.createElement('li');
+    galleryItem.classList.add('gallery__list-item');
+    galleryItem.appendChild(link);
+
+    gallery.appendChild(galleryItem);
   });
+
+  if (data.length > 0) {
+    ref.hideButton.style.display = 'block';
+  }
 }
-observer.observe(ref.loader);
