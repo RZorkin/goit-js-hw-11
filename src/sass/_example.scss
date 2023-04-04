@@ -10,7 +10,7 @@ body {
 $ruler: 16px;
 $color-red: #ce1804;
 $color-bg: #ebecf0;
-$color-shadow: #babecc;
+$color-shadow: #38393d;
 $color-white: #fff;
 
 body,
@@ -43,6 +43,7 @@ form {
 .segment {
   text-align: center;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   height: 70px;
@@ -95,8 +96,6 @@ button {
 
 .info {
   display: flex;
-  // add
-  flex-wrap: wrap;
   max-width: 100%;
 }
 
@@ -129,8 +128,6 @@ img {
 
 .search-form {
   display: flex;
-  // add
-  flex-wrap: wrap;
 }
 
 #loading {
