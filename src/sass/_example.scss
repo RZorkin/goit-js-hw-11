@@ -115,28 +115,6 @@ button {
   width: calc((100% / 4) - 60px);
 }
 
-// media
-
-@media (max-width: 768px) {
-  .photo-card {
-    width: calc((100% / 3) - 40px);
-  }
-}
-
-@media (max-width: 576px) {
-  .photo-card {
-    width: calc((100% / 2) - 30px);
-  }
-}
-
-@media (max-width: 400px) {
-  .photo-card {
-    width: 100%;
-  }
-}
-
-// media
-
 img {
   display: block;
   height: 300px;
